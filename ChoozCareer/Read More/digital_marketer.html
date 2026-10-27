@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChoozCareer - Career Roadmap</title>
+    <link rel="stylesheet" href="/ChoozCareer/Css/nav.css">
+    <link rel="stylesheet" href="/ChoozCareer/Css/footer.css">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
+            --primary: #5d1f97;
+            --primary-hover: #8400ff;
+            --accent: #248ca5;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --footer-bg: #0f172a;
+            --footer-text: #94a3b8;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --accent: #0aee0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .roadmap-header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .roadmap-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .overview-box {
+            background-color: rgba(36, 140, 165, 0.08);
+            border-left: 5px solid var(--accent);
+            padding: 1.25rem;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-heading {
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem 0;
+            color: var(--text-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .skill-card h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .tier-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+        }
+
+        .tier-node {
+            background: linear-gradient(135deg, var(--primary) 0%, #4c1d73 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 6px;
+            flex: 1;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tier-arrow {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-step {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .timeline-step h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
+            color: var(--primary);
+        }
+
+        .analytics-list,
+        .links-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .analytics-list li,
+        .links-list li {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        .links-list a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .links-list a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="name">Chooz<span class="career">Career</span></div>
+        <nav>
+            <ul>
+                <li><a href="/ChoozCareer/Pages/index.html">Home</a></li>
+                <li><a href="/ChoozCareer/Pages/explore.html">Explore Career</a></li>
+                <li><a href="/ChoozCareer/Pages/about.html">About</a></li>
+                <li class="theme-toggle-item">
+                    <button class="theme-switch" id="globalThemeBtn" onclick="toggleTheme()"
+                        aria-label="Toggle Night Mode">
+                        <span class="switch-label">Night Mode:</span>
+                        <div class="switch-track">
+                            <div class="switch-knob"></div>
+                        </div>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="roadmap-header">
+            <h1>Career Roadmap: Digital Marketer</h1>
+        </div>
+        <div class="overview-box">
+            <strong>Core Overview:</strong> Orchestrates multichannel customer acquisition campaigns, optimizes
+            performance marketing budgets, and drives scalable brand growth using data-driven analytics.
+        </div>
+
+        <h3 class="section-heading">Core Skillsets</h3>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h4>1) Content & Brand</h4>
+                <p>Copywriting, Content Strategy, Social Media Management, PR</p>
+            </div>
+            <div class="skill-card">
+                <h4>2) Performance Channels</h4>
+                <p>Search Engine Optimization (SEO), Paid Ads (SEM), Email Marketing</p>
+            </div>
+            <div class="skill-card">
+                <h4>3) Data & Analytics</h4>
+                <p>Google Analytics, Conversion Rate Optimization (CRO), A/B Testing</p>
+            </div>
+            <div class="skill-card">
+                <h4>4) Soft Skills</h4>
+                <p>Consumer Psychology, Creative Agility, Trend Forecasting</p>
+            </div>
+        </div>
+
+        <h3 class="section-heading">Career Progression Tiers</h3>
+        <div class="tier-flow">
+            <div class="tier-node">Marketing Executive / Coordinator</div>
+            <div class="tier-arrow">&rarr;</div>
+            <div class="tier-node">Growth Marketing Specialist</div>
+            <div class="tier-arrow">&rarr;</div>
+            <div class="tier-node">Head of Growth / Chief Marketing Officer (CMO)</div>
+        </div>
+
+        <h3 class="section-heading">Execution Learning Roadmap</h3>
+        <div class="timeline">
+            <div class="timeline-step">
+                <h4>1) Foundational Channels & Content Creation</h4>
+                <p>Master basic audience building, brand positioning fundamentals, and essential on-page SEO frameworks.
+                </p>
+            </div>
+            <div class="timeline-step">
+                <h4>2) Paid Acquisition & Performance Analytics</h4>
+                <p>Learn pixel tracking architectures, manage targeted advertising budgets, and run data attribution
+                    models.</p>
+            </div>
+            <div class="timeline-step">
+                <h4>3) Full-Funnel Growth Engineering & Automation</h4>
+                <p>Design complex customer retention funnels, deploy systemic email automations, and scale conversion
+                    rate yields.</p>
+            </div>
+        </div>
+
+        <h3 class="section-heading">Top Learning Links</h3>
+        <ul class="links-list">
+            <li><a href="https://google.com" target="_blank">Google Analytics Skills Training</a></li>
+            <li><a href="https://hubspot.com" target="_blank">HubSpot Academy Digital Certification Index</a></li>
+        </ul>
+
+    </main>
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section footer-brand">
+                <h3>ChoozCareer</h3>
+                <p>Helping students find their passion, one milestone at a time.</p>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#careers">Career Paths</a></li>
+                    <li><a href="#blog">Resources & Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-info" id="contact-info">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:alphaxheroes@gmail.com">alphaxheroes@gmail.com</a></p>
+                <p>Hours: Mon - Fri, 9:00 AM - 5:00 PM</p>
+            </div>
+
+            <div class="footer-section footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to get the latest career insights.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Join</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 ChoozCareer. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#privacy">Privacy Policy</a> |
+                <a href="#terms">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/ChoozCareer/Js/script.js">
+    </script>
+</body>
+
+</html>

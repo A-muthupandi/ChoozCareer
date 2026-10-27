@@ -1,0 +1,109 @@
+:root {
+    --bg-color: #f8fafc;
+    --text-color: #0f172a;
+    --primary: #5d1f97;
+    --primary-hover: #8400ff;
+    --accent: #248ca5;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --footer-bg: #0f172a;
+    --footer-text: #94a3b8;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.discovery-hub {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.discovery-hub h1 {
+    font-size: 2.6rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.directory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.career-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.career-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.career-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+}
+
+.career-card p {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.card-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 5rem;
+    font-size: 0.95rem;
+}
